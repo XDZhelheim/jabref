@@ -75,6 +75,7 @@ class RemoteCommunicationTest {
     }
 
     // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
+    // Test method: Protocol.sendMessage and Protocol.receiveMessage
     @Test
     void commandLineArgumentEncodingAndDecoding() {
         final String[] message = new String[]{"D:\\T EST\\测试te st.bib"};
