@@ -42,6 +42,9 @@ public class PreferencesDialogView extends BaseDialog<PreferencesDialogViewModel
     private final JabRefFrame frame;
     private PreferencesDialogViewModel viewModel;
 
+    /**
+     * @param frame Frame of JabRef GUI
+     */
     public PreferencesDialogView(JabRefFrame frame) {
         this.frame = frame;
         this.setTitle(Localization.lang("JabRef preferences"));
@@ -52,6 +55,7 @@ public class PreferencesDialogView extends BaseDialog<PreferencesDialogViewModel
 
         ControlHelper.setAction(saveButton, getDialogPane(), event -> savePreferencesAndCloseDialog());
 
+        // CS304 Issue Link: https://github.com/JabRef/jabref/issues/7416
         this.getDialogPane().setStyle("-fx-font-size: " + preferencesService.getAppearancePreferences().getMainFontSize() + "pt;");
 
         // ToDo: After conversion of all tabs to mvvm, rework interface and make validSettings bindable

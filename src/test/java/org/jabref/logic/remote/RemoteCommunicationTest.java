@@ -74,6 +74,7 @@ class RemoteCommunicationTest {
         verify(server).handleCommandLineArguments(message);
     }
 
+    // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
     @Test
     void commandLineArgumentEncodingAndDecoding() {
         final String[] message = new String[]{"D:\\T EST\\测试te st.bib"};
