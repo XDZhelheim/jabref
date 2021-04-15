@@ -77,12 +77,14 @@ class RemoteCommunicationTest {
     // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
     // Test method: Protocol.sendMessage and Protocol.receiveMessage
     @Test
-    void commandLineArgumentEncodingAndDecoding() {
+    /* default */ void commandLineArgumentEncodingAndDecoding() {
         final String[] message = new String[]{"D:\\T EST\\测试te st.bib"};
+        // PMD: Array initialization can be written shorter
 
         // will be encoded as "D%3A%5CT+EST%5C%E6%B5%8B%E8%AF%95te+st.bib"
         client.sendCommandLineArguments(message);
 
         verify(server).handleCommandLineArguments(message);
+        // PMD: Potential violation of Law of Demeter (method chain calls)
     }
 }

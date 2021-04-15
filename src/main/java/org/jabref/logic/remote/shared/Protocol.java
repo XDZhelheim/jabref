@@ -49,7 +49,8 @@ public class Protocol implements AutoCloseable {
         out.writeObject(type);
 
         // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
-        // encode the commandline arguments to handle special characters (eg. spaces and Chinese characters)
+        // encode the commandline arguments to handle special characters
+        // eg. spaces and Chinese characters
         // related to issue #6487
         if (type == RemoteMessage.SEND_COMMAND_LINE_ARGUMENTS) {
             String[] encodedArgs = ((String[]) argument).clone();
