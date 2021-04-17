@@ -76,6 +76,7 @@ class RemoteCommunicationTest {
 
     // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
     // Test method: Protocol.sendMessage and Protocol.receiveMessage
+    // Test whitespaces and Chinese characters
     @Test
     /* default */ void commandLineArgumentEncodingAndDecoding() {
         final String[] message = new String[]{"D:\\T EST\\测试te st.bib"};
@@ -86,5 +87,16 @@ class RemoteCommunicationTest {
 
         verify(server).handleCommandLineArguments(message);
         // PMD: Potential violation of Law of Demeter (method chain calls)
+    }
+
+    // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
+    @Test
+    /* default */ void commandLineArgumentEncodingAndDecoding2() {
+        final String[] message = new String[]{"D:\\TEST\\äöüß.bib"};
+
+        // will be encoded as "D%3A%5CTEST%5C%C3%A4%C3%B6%C3%BC%C3%9F.bib"
+        client.sendCommandLineArguments(message);
+
+        verify(server).handleCommandLineArguments(message);
     }
 }
