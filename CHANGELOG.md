@@ -11,6 +11,7 @@ Note that this project **does not** adhere to [Semantic Versioning](http://semve
 
 ### Added
 
+- We added a progress counter to the title bar in Possible Duplicates dialog window. [#7366](https://github.com/JabRef/jabref/issues/7366)
 - We added new "Customization" tab to the preferences which includes option to choose a custom address for DOI access. [#7337](https://github.com/JabRef/jabref/issues/7337)
 - We added zbmath to the public databases from which the bibliographic information of an existing entry can be updated. [#7437](https://github.com/JabRef/jabref/issues/7437)
 - We added the possibility to add a new entry via its zbMath ID (zbMATH can be chosen as ID type in the "Select entry type" window). [#7202](https://github.com/JabRef/jabref/issues/7202)
@@ -75,6 +76,7 @@ Note that this project **does not** adhere to [Semantic Versioning](http://semve
 - We fixed an issue where opening BibTex file (doubleclick) from Folder with spaces not working. [#6487](https://github.com/JabRef/jabref/issues/6487)
 - We fixed an issue with saving large `.bib` files [#7265](https://github.com/JabRef/jabref/issues/7265)
 - We fixed an issue with very large page numbers [#7590](https://github.com/JabRef/jabref/issues/7590)
+- We fixed an issue where the article title with curly brackets fails to download the arXiv link (pdf file). [#7633](https://github.com/JabRef/jabref/issues/7633)
 
 ### Removed
 
