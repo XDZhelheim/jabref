@@ -21,7 +21,7 @@ public class UTF8CheckerTest {
 
     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     * <p>
+     *
      * fieldAcceptsUTF8 to check UTF8Checker's result set
      * when the entry is encoded in UTF-8 (should be empty)
      */
@@ -34,7 +34,7 @@ public class UTF8CheckerTest {
 
     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     * <p>
+     *
      * fieldDoesNotAcceptUmlauts to check UTF8Checker's result set
      * when the entry is encoded in Non-Utf-8 charset and the System
      * environment is Non UTF-8.
@@ -56,7 +56,7 @@ public class UTF8CheckerTest {
 
     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     * <p>
+     *
      * To check the UTF8Checker.UTF8EncodingChecker
      * in NonUTF8 char array (should return false)
      *
@@ -73,7 +73,7 @@ public class UTF8CheckerTest {
 
     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     * <p>
+     *
      * To check the UTF8Checker.UTF8EncodingChecker
      * in UTF-8 char array (should return true)
      */
