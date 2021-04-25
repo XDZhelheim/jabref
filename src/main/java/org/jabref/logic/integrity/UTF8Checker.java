@@ -16,6 +16,8 @@ import org.jabref.model.entry.field.Field;
 public class UTF8Checker implements EntryChecker {
 
     /**
+     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
+     *
      * Detect any non UTF-8 encoded field
      * @param entry the BibEntry of BibLatex.
      * @return return the warning of UTF-8 check for BibLatex.
@@ -35,6 +37,8 @@ public class UTF8Checker implements EntryChecker {
     }
 
     /**
+     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
+     *
      * Check whether a byte array is encoded in UTF-8 charset
      *
      * Use java api decoder and try&catch block to check the charset.
