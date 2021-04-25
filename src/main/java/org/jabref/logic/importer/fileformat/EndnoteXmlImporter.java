@@ -259,11 +259,41 @@ public class EndnoteXmlImporter extends Importer implements Parser {
                            .findFirst();
     }
 
+    /**
+     * Extracts url address of Class Url generated from a user-imported .xml file.
+     * More specifically, this method will check whether text of url is wrapped in a style tag.
+     * If it is, extract from inner text; otherwise, use vanilla text outside.
+     *
+     * @param url a Url class object containing info from .xml file imported by user.
+     * @return entity url address of given class url
+     */
     private Optional<String> getUrlValue(Url url) {
-        return Optional.ofNullable(url)
-                       .map(Url::getStyle)
-                       .map(Style::getContent)
-                       .map(this::clean);
+        Optional<List<Object>> urlContent = Optional.ofNullable(url).map(Url::getContent);
+        List<Object> list = urlContent.orElse(null);
+        Optional<String> ret;
+        if (list==null || list.size() == 0) {
+            return Optional.empty();
+        }
+        else {
+            boolean isStyleExist = false;
+            int style_index = -1;
+            for(int i =0 ; i < list.size(); i++) {
+                if(list.get(i) instanceof Style){
+                    isStyleExist = true;
+                    style_index = i;
+                }
+            }
+            if (!isStyleExist) {
+                ret =  Optional.ofNullable((String) list.get(0))
+                        .map(this::clean);
+            }
+            else {
+                ret = Optional.ofNullable((Style)list.get(style_index))
+                        .map(Style::getContent)
+                        .map(this::clean);
+            }
+        }
+        return ret;
     }
 
     private List<String> getKeywords(Record record) {
