@@ -151,8 +151,8 @@ class IntegrityCheckTest {
 
     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     * 
-     * testCheckersForBibTex use injection to test the checkers in integrity check of BibTex
+     *
+     * testCheckersForBibTex uses injection to test the checkers in integrity check of BibTex
      *
      * @throws NoSuchFieldException   when using getDeclaredField in integrityCheck.getClass().getDeclaredField("entryCheckers")
      * @throws IllegalAccessException when using Get method in entryCheckersField.get(integrityCheck)
@@ -198,7 +198,7 @@ class IntegrityCheckTest {
 
     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     * 
+     *
      * testCheckersForBibLatex use injection to test the checkers in integrity check of BibTex
      *
      * @throws NoSuchFieldException   when using getDeclaredField in integrityCheck.getClass().getDeclaredField("entryCheckers")
