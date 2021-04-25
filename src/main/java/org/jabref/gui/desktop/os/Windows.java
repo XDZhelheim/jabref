@@ -2,6 +2,7 @@ package org.jabref.gui.desktop.os;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
 
@@ -24,16 +25,50 @@ public class Windows implements NativeDesktop {
         }
     }
 
+    /**
+     * CS304 Issue link: https://github.com/EvoSuite/evosuite/issues/7641
+     * Detect the path of program under ProgramFiles or ProgramFiles(x86), return empty string if nothing found.
+     * @param programName Name of program (for example, texstudio)
+     * @param directoryName Name of the directory that contains program (for example, TeXstudio)
+     */
     @Override
     public String detectProgramPath(String programName, String directoryName) {
         String progFiles = System.getenv("ProgramFiles(x86)");
-        if (progFiles == null) {
-            progFiles = System.getenv("ProgramFiles");
+        String programPath;
+        if (progFiles != null) {
+            programPath = getProgramPath(programName, directoryName, progFiles);
+            if (programPath != null) {
+                return programPath;
+            }
         }
+
+        progFiles = System.getenv("ProgramFiles");
+        programPath = getProgramPath(programName, directoryName, progFiles);
+        if (programPath != null) {
+            return programPath;
+        }
+
+        return "";
+    }
+
+    /**
+     * CS304 Issue link: https://github.com/EvoSuite/evosuite/issues/7641
+     * Find the path of program under ProgramFiles or ProgramFiles(x86), return null if program not exists.
+     * @param programName Name of program (for example, texstudio)
+     * @param directoryName Name of the directory that contains program (for example, TeXstudio)
+     * @param progFiles Path of windows system directory (for example, C:/Program Files or C:/Program Files(x86))
+     */
+    private String getProgramPath(String programName, String directoryName, String progFiles) {
+        Path programPath;
         if ((directoryName != null) && !directoryName.isEmpty()) {
-            return Path.of(progFiles, directoryName, programName + DEFAULT_EXECUTABLE_EXTENSION).toString();
+            programPath = Path.of(progFiles, directoryName, programName + DEFAULT_EXECUTABLE_EXTENSION);
+        } else {
+            programPath = Path.of(progFiles, programName + DEFAULT_EXECUTABLE_EXTENSION);
         }
-        return Path.of(progFiles, programName + DEFAULT_EXECUTABLE_EXTENSION).toString();
+        if (Files.exists(programPath)) {
+            return programPath.toString();
+        }
+        return null;
     }
 
     @Override
