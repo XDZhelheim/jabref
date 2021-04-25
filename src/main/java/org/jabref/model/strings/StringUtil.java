@@ -741,8 +741,8 @@ public class StringUtil {
      *
      * Ignore the curly brackets in the String
      *
-     * @param title, the title of the article saved in .bib file
-     * @return, the fixed title without the curly brackets
+     * @param title the title of the article saved in .bib file
+     * @return the fixed title without the curly brackets
      */
     public static String ignoreCurlyBracket(String title) {
         return isNotBlank(title) ? title.replace("{", "").replace("}", "") : title;

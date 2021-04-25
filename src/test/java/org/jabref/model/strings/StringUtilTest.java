@@ -351,11 +351,10 @@ class StringUtilTest {
     /**
      * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
      *
-     * Test method: StringUtil.ignoreCurlyBracket
+     * Test method: StringUtil.ignoreCurlyBracket, it will erase the curly brackets in the string
      */
     @Test
     void testIgnoreCurlyBracket() {
         assertEquals("Machine versus Human Attention in Deep Reinforcement Learning Tasks", StringUtil.ignoreCurlyBracket("Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}"));
     }
-
 }

@@ -98,9 +98,9 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
     /**
      * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
      *
-     * Test method: ArXiv.searchForEntries
+     * Test method: ArXiv.searchForEntries, erase the curly brackets in the title
      *
-     * @throws IOException, if there is somethinf wrong with read or write data
+     * @throws IOException if there is something wrong with read or write data
      */
     @Test
     void findFullTextByTitleWithCurlyBracket() throws IOException {
@@ -120,9 +120,9 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
     /**
      * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
      *
-     * Test method: ArXiv.searchForEntries
+     * Test method: ArXiv.searchForEntries, erase the curly brackets in the title
      *
-     * @throws IOException, if there is somethinf wrong with read or write data
+     * @throws IOException if there is somethinf wrong with read or write data
      */
 
     @Test
