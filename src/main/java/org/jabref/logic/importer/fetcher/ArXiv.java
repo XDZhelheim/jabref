@@ -115,8 +115,15 @@ public class ArXiv implements FulltextFetcher, PagedSearchBasedFetcher, IdBasedF
         }
     }
 
-    // CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
-    // Ignore the curly brackets in the title before it serves as a parameter to search arXiv entry and before the comparison with arXiv title
+    /**
+     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
+     *
+     * Ignore the curly brackets in the title before it serves as a parameter to search arXiv entry  and before the comparison with arXiv title
+     *
+     * @param entry the BibEntry variable saving the elements of the .bib file
+     * @return if do not found the pdf file, return empty, else, it will return the pdf file
+     * @throws FetcherException fail to request arXiv eprint API
+     */
     private List<ArXivEntry> searchForEntries(BibEntry entry) throws FetcherException {
         // 1. Eprint
         Optional<String> identifier = entry.getField(StandardField.EPRINT);
