@@ -124,7 +124,6 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
      *
      * @throws IOException if there is somethinf wrong with read or write data
      */
-
     @Test
     void findFullTextByTitleWithCurlyBracketAndPartOfAuthor() throws IOException {
         entry.setField(StandardField.TITLE, "Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}");
