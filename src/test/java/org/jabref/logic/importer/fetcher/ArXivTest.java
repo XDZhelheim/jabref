@@ -110,6 +110,13 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
     }
 
     @Test
+    void findFullTextByTitleWithCurlyBracket() throws IOException {
+        entry.setField(StandardField.TITLE, "Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}");
+
+        assertEquals(Optional.of(new URL("https://arxiv.org/pdf/2010.15942v2")), fetcher.findFullText(entry));
+    }
+
+    @Test
     void findFullTextByTitleAndPartOfAuthor() throws IOException {
         entry.setField(StandardField.TITLE, "Pause Point Spectra in DNA Constant-Force Unzipping");
         entry.setField(StandardField.AUTHOR, "Weeks and Lucks");
@@ -124,6 +131,14 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
      *
      * @throws IOException if there is somethinf wrong with read or write data
      */
+
+    @Test
+    void findFullTextByTitleWithCurlyBracketAndPartOfAuthor() throws IOException {
+        entry.setField(StandardField.TITLE, "Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}");
+        entry.setField(StandardField.AUTHOR, "Zhang, Ruohan and Guo");
+
+        assertEquals(Optional.of(new URL("https://arxiv.org/pdf/2010.15942v2")), fetcher.findFullText(entry));
+    }
 
     @Test
     void findFullTextByTitleWithCurlyBracketAndPartOfAuthor() throws IOException {
