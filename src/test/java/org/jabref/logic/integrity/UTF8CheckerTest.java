@@ -37,7 +37,7 @@ public class UTF8CheckerTest {
      *
      * fieldDoesNotAcceptUmlauts to check UTF8Checker's result set
      * when the entry is encoded in Non-Utf-8 charset and the System
-     * environment is Non UTF-8.
+     * environment is in Non UTF-8.
      * Finally we need to reset the environment charset.
      *
      * @throws UnsupportedEncodingException initial a String in charset GBK

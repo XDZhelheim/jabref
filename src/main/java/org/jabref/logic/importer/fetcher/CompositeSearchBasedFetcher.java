@@ -41,7 +41,7 @@ public class CompositeSearchBasedFetcher implements SearchBasedFetcher {
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/7606
      * Set onPerformSucceed to true at performSearchPaged method in ArXiv
      */
-    public static void PerformSucceed() {
+    public static void performSucceed() {
         onPerformSucceed = true;
     }
 
