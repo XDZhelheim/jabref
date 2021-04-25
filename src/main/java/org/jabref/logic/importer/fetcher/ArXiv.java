@@ -280,7 +280,7 @@ public class ArXiv implements FulltextFetcher, PagedSearchBasedFetcher, IdBasedF
         CompositeSearchBasedFetcher.PerformSucceed();
         return new Page<>(transformedQuery, pageNumber, filterYears(searchResult, transformer));
     }
-    //when perform pages set onPerformSearch to true
+    // when perform pages set onPerformSearch to true
 
     private List<BibEntry> filterYears(List<BibEntry> searchResult, ArXivQueryTransformer transformer) {
         return searchResult.stream()
