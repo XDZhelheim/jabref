@@ -29,7 +29,6 @@ public class IntegrityCheck {
      * @param journalAbbreviationRepository The Structure about the journal abbreviation.
      * @param allowIntegerEdition The boolean value to set the Integer Edition.
      */
-    @SuppressWarnings("checkstyle:JavadocMethod")
     public IntegrityCheck(BibDatabaseContext bibDatabaseContext,
                           FilePreferences filePreferences,
                           CitationKeyPatternPreferences citationKeyPatternPreferences,
