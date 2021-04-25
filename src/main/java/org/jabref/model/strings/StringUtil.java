@@ -735,7 +735,7 @@ public class StringUtil {
     public static String substringBetween(String str, String open, String close) {
         return StringUtils.substringBetween(str, open, close);
     }
-    
+  
     // CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
     // ingore the curly brackets in the title if the title is not blank
     public static String ignoreCurlyBracket(String title) {

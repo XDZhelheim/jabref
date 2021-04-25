@@ -17,6 +17,18 @@ public class IntegrityCheck {
     private final FieldCheckers fieldCheckers;
     private final List<EntryChecker> entryCheckers;
 
+    /**
+     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
+     * 
+     * This method mainly check the Integrity of every field of Bibtex and BibLatex.
+     * The Bibtex and Biblatex use different checkers.
+     * 
+     * @param bibDatabaseContext: The database record the bib files and entries.
+     * @param filePreferences: The user customized preference.
+     * @param citationKeyPatternPreferences: The user's reference of citationKeyPattern.
+     * @param journalAbbreviationRepository: The Structure about the journal abbreviation.
+     * @param allowIntegerEdition: The boolean value to set the Integer Edition.
+     */
     public IntegrityCheck(BibDatabaseContext bibDatabaseContext,
                           FilePreferences filePreferences,
                           CitationKeyPatternPreferences citationKeyPatternPreferences,
@@ -38,9 +50,11 @@ public class IntegrityCheck {
                 new CitationKeyDeviationChecker(bibDatabaseContext, citationKeyPatternPreferences),
                 new CitationKeyDuplicationChecker(bibDatabaseContext.getDatabase())
         ));
-
         if (bibDatabaseContext.isBiblatexMode()) {
-            entryCheckers.add(new JournalInAbbreviationListChecker(StandardField.JOURNALTITLE, journalAbbreviationRepository));
+            entryCheckers.addAll(List.of(
+                    new JournalInAbbreviationListChecker(StandardField.JOURNALTITLE, journalAbbreviationRepository),
+                    new UTF8Checker())
+            );
         } else {
             entryCheckers.addAll(List.of(
                     new JournalInAbbreviationListChecker(StandardField.JOURNAL, journalAbbreviationRepository),
@@ -59,7 +73,6 @@ public class IntegrityCheck {
         for (BibEntry entry : database.getEntries()) {
             result.addAll(checkEntry(entry));
         }
-
         result.addAll(checkDatabase(database));
 
         return result;
