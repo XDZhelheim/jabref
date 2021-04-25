@@ -259,6 +259,14 @@ public class EndnoteXmlImporter extends Importer implements Parser {
                            .findFirst();
     }
 
+    /**
+     * Extracts url address of Class Url generated from a user-imported .xml file.
+     * More specifically, this method will check whether text of url is wrapped in a style tag.
+     * If it is, extract from inner text; otherwise, use vanilla text outside.
+     *
+     * @param url a Url class object containing info from .xml file imported by user.
+     * @return entity url address of given class url
+     */
     private Optional<String> getUrlValue(Url url) {
         Optional<List<Object>> urlContent = Optional.ofNullable(url).map(Url::getContent);
         List<Object> list = urlContent.orElse(null);
