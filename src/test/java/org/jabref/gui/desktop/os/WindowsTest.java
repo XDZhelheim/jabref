@@ -11,12 +11,12 @@ class WindowsTest {
     // CS304 Issue Link: https://github.com/JabRef/jabref/issues/7641
     @Test
     void detectProgramPathUnderProgramFileTest() {
-        assertEquals("C:/Program Files/TeXstudio/texstudio.exe", windows.detectProgramPath("texstudio", "TeXstudio"));
+        assertEquals("C:\\Program Files\\TeXstudio\\texstudio.exe", windows.detectProgramPath("texstudio", "TeXstudio"));
     }
 
     // CS304 Issue Link: https://github.com/JabRef/jabref/issues/7641
     @Test
     void detectProgramPathNotUnderProgramFileTest() {
-        assertEquals("C:/Program Files/TeXstudio/texstudio.exe", windows.detectProgramPath("texstudio", "teXstudio"));
+        assertEquals("C:\\Program Files\\TeXstudio\\texstudio.exe", windows.detectProgramPath("texstudio", "teXstudio"));
     }
 }
