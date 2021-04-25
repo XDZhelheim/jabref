@@ -27,7 +27,7 @@ public class UTF8Checker implements EntryChecker {
         List<IntegrityMessage> results = new ArrayList<>();
         Charset charset = Charset.forName(System.getProperty("file.encoding"));
         for (Map.Entry<Field, String> field : entry.getFieldMap().entrySet()) {
-            boolean utfOnly = UTF8EncodingChecker(field.getValue().getBytes(charset));
+            boolean utfOnly = utf8EncodingChecker(field.getValue().getBytes(charset));
             if (!utfOnly) {
                 results.add(new IntegrityMessage(Localization.lang("Non-UTF-8 encoded field found"), entry,
                         field.getKey()));
@@ -45,7 +45,7 @@ public class UTF8Checker implements EntryChecker {
      * @param data the byte array used to check the encoding charset
      * @return true if is encoded in UTF-8 & false is not encoded in UTF-8
      */
-    public static boolean UTF8EncodingChecker(byte[] data) {
+    public static boolean utf8EncodingChecker(byte[] data) {
         CharsetDecoder decoder = StandardCharsets.UTF_8.newDecoder();
         try {
             decoder.decode(ByteBuffer.wrap(data));

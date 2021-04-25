@@ -19,15 +19,15 @@ public class IntegrityCheck {
 
     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     * 
+     *
      * This method mainly check the Integrity of every field of Bibtex and BibLatex.
      * The Bibtex and Biblatex use different checkers.
-     * 
-     * @param bibDatabaseContext: The database record the bib files and entries.
-     * @param filePreferences: The user customized preference.
-     * @param citationKeyPatternPreferences: The user's reference of citationKeyPattern.
-     * @param journalAbbreviationRepository: The Structure about the journal abbreviation.
-     * @param allowIntegerEdition: The boolean value to set the Integer Edition.
+     *
+     * @param bibDatabaseContext The database record the bib files and entries.
+     * @param filePreferences The user customized preference.
+     * @param citationKeyPatternPreferences The user's reference of citationKeyPattern.
+     * @param journalAbbreviationRepository The Structure about the journal abbreviation.
+     * @param allowIntegerEdition The boolean value to set the Integer Edition.
      */
     public IntegrityCheck(BibDatabaseContext bibDatabaseContext,
                           FilePreferences filePreferences,
