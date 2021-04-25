@@ -40,10 +40,17 @@ public class Protocol implements AutoCloseable {
         out.flush();
     }
 
+    /**
+     * @param type The type of the message to send
+     * @param argument The argument to send
+     * @throws IOException Any exception thrown by the underlying OutputStream
+     */
     public void sendMessage(RemoteMessage type, Object argument) throws IOException {
         out.writeObject(type);
 
-        // encode the commandline arguments to handle special characters (eg. spaces and Chinese characters)
+        // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
+        // encode the commandline arguments to handle special characters
+        // eg. spaces and Chinese characters
         // related to issue #6487
         if (type == RemoteMessage.SEND_COMMAND_LINE_ARGUMENTS) {
             String[] encodedArgs = ((String[]) argument).clone();
@@ -59,12 +66,17 @@ public class Protocol implements AutoCloseable {
         out.flush();
     }
 
+    /**
+     * @return The recieved message
+     * @throws IOException Any of the usual Input/Output related exceptions
+     */
     public Pair<RemoteMessage, Object> receiveMessage() throws IOException {
         try {
             RemoteMessage type = (RemoteMessage) in.readObject();
             Object argument = in.readObject();
             int endOfMessage = in.read();
 
+            // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
             // decode the received commandline arguments
             if (type == RemoteMessage.SEND_COMMAND_LINE_ARGUMENTS) {
                 for (int i = 0; i < ((String[]) argument).length; i++) {

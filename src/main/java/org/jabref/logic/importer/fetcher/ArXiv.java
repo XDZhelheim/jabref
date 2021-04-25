@@ -115,6 +115,8 @@ public class ArXiv implements FulltextFetcher, PagedSearchBasedFetcher, IdBasedF
         }
     }
 
+    // CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
+    // Ignore the curly brackets in the title before it serves as a parameter to search arXiv entry and before the comparison with arXiv title
     private List<ArXivEntry> searchForEntries(BibEntry entry) throws FetcherException {
         // 1. Eprint
         Optional<String> identifier = entry.getField(StandardField.EPRINT);
