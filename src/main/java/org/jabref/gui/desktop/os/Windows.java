@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.jabref.gui.externalfiletype.ExternalFileType;
 import org.jabref.gui.externalfiletype.ExternalFileTypes;
 
+
 public class Windows implements NativeDesktop {
     private static final String DEFAULT_EXECUTABLE_EXTENSION = ".exe";
 

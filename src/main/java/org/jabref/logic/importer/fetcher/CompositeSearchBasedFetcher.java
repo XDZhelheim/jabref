@@ -17,7 +17,9 @@ import org.apache.lucene.queryparser.flexible.core.nodes.QueryNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class CompositeSearchBasedFetcher implements SearchBasedFetcher {
+    public static volatile Boolean onPerformSucceed = false;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CompositeSearchBasedFetcher.class);
 
@@ -36,6 +38,14 @@ public class CompositeSearchBasedFetcher implements SearchBasedFetcher {
         this.maximumNumberOfReturnedResults = maximumNumberOfReturnedResults;
     }
 
+    /**
+     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/7606
+     * Set onPerformSucceed to true at performSearchPaged method in ArXiv
+     */
+    public static void PerformSucceed(){
+        onPerformSucceed = true;
+    }
+    // keep a status of perform search to make sure the execute order
     @Override
     public String getName() {
         return "SearchAll";
@@ -46,13 +56,23 @@ public class CompositeSearchBasedFetcher implements SearchBasedFetcher {
         return Optional.empty();
     }
 
+    /**
+     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/7606
+     *
+     * @param luceneQuery the root node of the lucene query
+     *
+     * @return return the fetchers stream
+     *
+     * @throws FetcherException when API request failed at searchBasedFetcher.getName()
+     */
     @Override
     public List<BibEntry> performSearch(QueryNode luceneQuery) throws FetcherException {
         ImportCleanup cleanup = new ImportCleanup(BibDatabaseMode.BIBTEX);
         // All entries have to be converted into one format, this is necessary for the format conversion
-        return fetchers.parallelStream()
+        return fetchers.stream()
                        .flatMap(searchBasedFetcher -> {
                            try {
+                               onPerformSucceed  = false;
                                return searchBasedFetcher.performSearch(luceneQuery).stream();
                            } catch (FetcherException e) {
                                LOGGER.warn(String.format("%s API request failed", searchBasedFetcher.getName()), e);
@@ -60,7 +80,13 @@ public class CompositeSearchBasedFetcher implements SearchBasedFetcher {
                            }
                        })
                        .limit(maximumNumberOfReturnedResults)
-                       .map(cleanup::doPostCleanup)
+                       .map(x->{
+                           while (!onPerformSucceed) {
+                               Thread.onSpinWait();
+                           }
+                           return cleanup.doPostCleanup(x);
+                            })
                        .collect(Collectors.toList());
     }
 }
+//clear only after the perform search

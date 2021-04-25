@@ -263,6 +263,10 @@ public class ArXiv implements FulltextFetcher, PagedSearchBasedFetcher, IdBasedF
     /**
      * Constructs a complex query string using the field prefixes specified at https://arxiv.org/help/api/user-manual
      *
+     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/7606
+     *
+     * Set the onPerformSucceed to true after performedPage
+     *
      * @param luceneQuery the root node of the lucene query
      * @return A list of entries matching the complex query
      */
@@ -273,8 +277,10 @@ public class ArXiv implements FulltextFetcher, PagedSearchBasedFetcher, IdBasedF
         List<BibEntry> searchResult = searchForEntries(transformedQuery, pageNumber).stream()
                                                                                     .map((arXivEntry) -> arXivEntry.toBibEntry(importFormatPreferences.getKeywordSeparator()))
                                                                                     .collect(Collectors.toList());
+        CompositeSearchBasedFetcher.PerformSucceed();
         return new Page<>(transformedQuery, pageNumber, filterYears(searchResult, transformer));
     }
+    //when perform pages set onPerformSearch to true
 
     private List<BibEntry> filterYears(List<BibEntry> searchResult, ArXivQueryTransformer transformer) {
         return searchResult.stream()
