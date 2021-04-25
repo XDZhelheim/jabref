@@ -347,4 +347,15 @@ class StringUtilTest {
         assertEquals("A", StringUtil.capitalizeFirst("a"));
         assertEquals("Aa", StringUtil.capitalizeFirst("AA"));
     }
+
+    /**
+     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
+     *
+     * Test method: StringUtil.ignoreCurlyBracket
+     */
+    @Test
+    void testIgnoreCurlyBracket() {
+        assertEquals("Machine versus Human Attention in Deep Reinforcement Learning Tasks", StringUtil.ignoreCurlyBracket("Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}"));
+    }
+
 }
