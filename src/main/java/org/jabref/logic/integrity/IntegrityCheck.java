@@ -19,7 +19,7 @@ public class IntegrityCheck {
 
     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     * <p>
+     *
      * This method mainly check the Integrity of every field of Bibtex and BibLatex.
      * The Bibtex and Biblatex use different checkers.
      *
