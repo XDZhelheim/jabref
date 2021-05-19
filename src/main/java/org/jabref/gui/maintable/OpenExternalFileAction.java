@@ -34,6 +34,7 @@ public class OpenExternalFileAction extends SimpleCommand {
     }
 
     /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6966
      * Open all linked files of the selected entries. If opening too many files, pop out a dialog to ask the user if to continue.
      * <br>
      * If some selected entries have linked file and others do not, ignore the latter.

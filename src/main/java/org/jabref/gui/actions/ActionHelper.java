@@ -82,6 +82,7 @@ public class ActionHelper {
     }
 
     /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6966
      * Check if at least one of the selected entries has linked files
      * <br>
      * Used in {@link org.jabref.gui.maintable.OpenExternalFileAction} when multiple entries selected
