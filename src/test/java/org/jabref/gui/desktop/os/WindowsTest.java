@@ -9,7 +9,7 @@ class WindowsTest {
     Windows windows = new Windows();
 
     /**
-     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7641
+     * CS304 (manually written) Issue link: https://github.com/JabRef/jabref/issues/7641
      * Test method: Test on detectProgram
      */
     @Test
@@ -18,7 +18,7 @@ class WindowsTest {
     }
 
     /**
-     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7641
+     * CS304 (manually written) Issue link: https://github.com/JabRef/jabref/issues/7641
      * Test method: Test on detectProgram
      */
     @Test

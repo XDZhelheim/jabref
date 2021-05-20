@@ -150,7 +150,7 @@ class IntegrityCheckTest {
     }
 
     /**
-     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
+     * CS304 (manually written) Issue Link: https://github.com/JabRef/jabref/issues/5850
      *
      * testCheckersForBibTex uses injection to test the checkers in integrity check of BibTex
      *
@@ -197,7 +197,7 @@ class IntegrityCheckTest {
     }
 
     /**
-     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
+     * CS304 (manually written) Issue Link: https://github.com/JabRef/jabref/issues/5850
      *
      * testCheckersForBibLatex use injection to test the checkers in integrity check of BibTex
      *

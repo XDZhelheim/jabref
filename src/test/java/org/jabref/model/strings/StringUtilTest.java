@@ -349,7 +349,7 @@ class StringUtilTest {
     }
 
     /**
-     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
+     * CS304 (manually written) Issue link: https://github.com/JabRef/jabref/issues/7633
      *
      * Test method: StringUtil.ignoreCurlyBracket, it will erase the curly brackets in the string
      */
@@ -359,7 +359,7 @@ class StringUtilTest {
     }
 
     /**
-     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
+     * CS304 (manually written) Issue link: https://github.com/JabRef/jabref/issues/7633
      *
      * Test method: StringUtil.ignoreCurlyBracket, it will keep the same if the title does not have curly brackets
      */

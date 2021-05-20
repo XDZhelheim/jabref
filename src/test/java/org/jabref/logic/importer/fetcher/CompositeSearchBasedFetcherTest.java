@@ -41,7 +41,7 @@ public class CompositeSearchBasedFetcherTest {
     }
 
     /***
-     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/7606
+     * CS304 (manually written) Issue Link: https://github.com/JabRef/jabref/issues/7606
      * setter test
      */
     @Test

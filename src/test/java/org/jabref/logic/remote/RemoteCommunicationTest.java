@@ -79,19 +79,6 @@ class RemoteCommunicationTest {
     }
 
     // CS304 (manually written) Issue Link: https://github.com/JabRef/jabref/issues/6487
-    // Test method: Protocol.sendMessage and Protocol.receiveMessage
-    // Test whitespaces and Chinese characters
-    @Test
-    void commandLineArgumentEncodingAndDecoding() {
-        final String[] message = new String[]{"D:\\T EST\\测试te st.bib"};
-
-        // will be encoded as "D%3A%5CT+EST%5C%E6%B5%8B%E8%AF%95te+st.bib"
-        client.sendCommandLineArguments(message);
-
-        verify(server).handleCommandLineArguments(message);
-    }
-
-    // CS304 (manually written) Issue Link: https://github.com/JabRef/jabref/issues/6487
     @Test
     void commandLineArgumentEncodingAndDecoding2() {
         final String[] message = new String[]{"D:\\TEST\\äöüß.bib"};

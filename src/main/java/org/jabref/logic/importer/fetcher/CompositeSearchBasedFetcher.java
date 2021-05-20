@@ -8,7 +8,9 @@ import java.util.stream.Stream;
 
 import org.jabref.logic.help.HelpFile;
 import org.jabref.logic.importer.FetcherException;
+import org.jabref.logic.importer.ImportCleanup;
 import org.jabref.logic.importer.SearchBasedFetcher;
+import org.jabref.model.database.BibDatabaseMode;
 import org.jabref.model.entry.BibEntry;
 
 import org.apache.lucene.queryparser.flexible.core.nodes.QueryNode;
