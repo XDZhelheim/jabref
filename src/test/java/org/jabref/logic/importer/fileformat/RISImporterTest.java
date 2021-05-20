@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class RISImporterTest {
 
@@ -32,6 +33,15 @@ public class RISImporterTest {
         assertEquals("ris", importer.getId());
     }
 
+    /**
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/7737
+     * Test if could get entries correctly
+     */
+    @Test
+    public void testGetEntries() {
+        assertNotNull(importer.getEntries());
+    }
+
     @Test
     public void testsGetExtensions() {
         assertEquals(StandardFileType.RIS, importer.getFileType());
@@ -47,4 +57,17 @@ public class RISImporterTest {
         Path file = Path.of(RISImporterTest.class.getResource("RisImporterCorrupted.ris").toURI());
         assertFalse(importer.isRecognizedFormat(file, StandardCharsets.UTF_8));
     }
+
+    /**
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/7737
+     * Test if split the lines remove "ER  -" correctly
+     */
+    @Test
+    public void testIfSplitCorrect() {
+        String[] entries = importer.getEntries();
+        for (String entry : entries) {
+            assertFalse(entry.equals("ER  - "));
+        }
+    }
+
 }

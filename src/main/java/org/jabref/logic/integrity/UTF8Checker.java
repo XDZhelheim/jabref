@@ -16,8 +16,7 @@ import org.jabref.model.entry.field.Field;
 public class UTF8Checker implements EntryChecker {
 
     /**
-     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     *
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/5850
      * Detect any non UTF-8 encoded field
      * @param entry the BibEntry of BibLatex.
      * @return return the warning of UTF-8 check for BibLatex.
@@ -27,7 +26,7 @@ public class UTF8Checker implements EntryChecker {
         List<IntegrityMessage> results = new ArrayList<>();
         Charset charset = Charset.forName(System.getProperty("file.encoding"));
         for (Map.Entry<Field, String> field : entry.getFieldMap().entrySet()) {
-            boolean utfOnly = utf8EncodingChecker(field.getValue().getBytes(charset));
+            boolean utfOnly = UTF8EncodingChecker(field.getValue().getBytes(charset));
             if (!utfOnly) {
                 results.add(new IntegrityMessage(Localization.lang("Non-UTF-8 encoded field found"), entry,
                         field.getKey()));
@@ -37,8 +36,7 @@ public class UTF8Checker implements EntryChecker {
     }
 
     /**
-     * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
-     *
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/5850
      * Check whether a byte array is encoded in UTF-8 charset
      *
      * Use java api decoder and try&catch block to check the charset.

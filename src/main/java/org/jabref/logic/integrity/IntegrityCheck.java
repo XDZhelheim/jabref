@@ -17,7 +17,7 @@ public class IntegrityCheck {
     private final FieldCheckers fieldCheckers;
     private final List<EntryChecker> entryCheckers;
 
-    /**
+     /**
      * CS304 Issue Link: https://github.com/JabRef/jabref/issues/5850
      *
      * This method mainly check the Integrity of every field of Bibtex and BibLatex.

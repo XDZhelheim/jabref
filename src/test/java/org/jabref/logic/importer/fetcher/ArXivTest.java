@@ -96,17 +96,31 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
     }
 
     /**
-     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
-     *
-     * Test method: ArXiv.searchForEntries, erase the curly brackets in the title
-     *
-     * @throws IOException if there is something wrong with read or write data
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/7633
+     * Test whether it will download the file with curly brackets successfully
+     * @throws IOException it will throw this when error occur in reading file
      */
     @Test
     void findFullTextByTitleWithCurlyBracket() throws IOException {
         entry.setField(StandardField.TITLE, "Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}");
 
-        assertEquals(Optional.of(new URL("https://arxiv.org/pdf/2010.15942v2")), fetcher.findFullText(entry));
+        assertEquals(Optional.of(new URL("http://arxiv.org/pdf/2010.15942v2")), fetcher.findFullText(entry));
+    }
+
+    @Test
+    void findFullTextByTitleWithColonAndJournalWithoutEprint() throws IOException {
+        entry.setField(StandardField.TITLE, "Bayes-TrEx: a Bayesian Sampling Approach to Model Transparency by Example");
+        entry.setField(StandardField.JOURNAL, "arXiv:2002.10248v4 [cs]");
+
+        assertEquals(Optional.of(new URL("http://arxiv.org/pdf/2002.10248v4")), fetcher.findFullText(entry));
+    }
+
+    @Test
+    void findFullTextByTitleWithColonAndUrlWithoutEprint() throws IOException {
+        entry.setField(StandardField.TITLE, "Bayes-TrEx: a Bayesian Sampling Approach to Model Transparency by Example");
+        entry.setField(StandardField.URL, "http://arxiv.org/abs/2002.10248v4");
+
+        assertEquals(Optional.of(new URL("http://arxiv.org/pdf/2002.10248v4")), fetcher.findFullText(entry));
     }
 
     @Test
@@ -118,18 +132,16 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
     }
 
     /**
-     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7633
-     *
-     * Test method: ArXiv.searchForEntries, erase the curly brackets in the title
-     *
-     * @throws IOException if there is somethinf wrong with read or write data
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/7633
+     * Test whether it will download the file with curly brackets and part of  author
+     * @throws IOException it will throw this when error occur in reading file
      */
     @Test
     void findFullTextByTitleWithCurlyBracketAndPartOfAuthor() throws IOException {
         entry.setField(StandardField.TITLE, "Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}");
         entry.setField(StandardField.AUTHOR, "Zhang, Ruohan and Guo");
 
-        assertEquals(Optional.of(new URL("https://arxiv.org/pdf/2010.15942v2")), fetcher.findFullText(entry));
+        assertEquals(Optional.of(new URL("http://arxiv.org/pdf/2010.15942v2")), fetcher.findFullText(entry));
     }
 
     @Test
