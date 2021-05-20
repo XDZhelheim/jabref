@@ -820,6 +820,7 @@ public class LibraryTab extends Tab {
     }
 
     /**
+     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7129
      * Listen whether field of "keywords" changed.
      */
     private class FieldKeywordChangeListener {

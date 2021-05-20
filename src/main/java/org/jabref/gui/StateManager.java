@@ -163,6 +163,7 @@ public class StateManager {
     }
 
     /**
+     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7129
      * Return the property of fieldkeywordchangeed.
      */
     public OptionalObjectProperty<FieldChangedEvent> fieldKeywordChangedProperty() {

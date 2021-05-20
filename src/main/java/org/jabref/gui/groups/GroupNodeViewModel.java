@@ -217,6 +217,7 @@ public class GroupNodeViewModel {
     }
 
     /**
+     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7129
      * Reset the chird node based on newDatabase.
      *
      * @param newDatabase The database after entries changed.

@@ -148,6 +148,7 @@ public class GroupTreeViewModel extends AbstractViewModel {
     }
 
     /**
+     * CS304 Issue link: https://github.com/JabRef/jabref/issues/7129
      * Gets invoked when the user is trying to change the value of keywords of any entries.
      * To ensure the performance for large scale, only group node defined in AutomaticKeywordGroup should be updated.
      *
