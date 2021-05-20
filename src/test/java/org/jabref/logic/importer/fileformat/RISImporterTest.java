@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class RISImporterTest {
 
@@ -30,6 +31,15 @@ public class RISImporterTest {
     @Test
     public void testGetCLIId() {
         assertEquals("ris", importer.getId());
+    }
+
+    /**
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/7737
+     * Test if could get entries correctly
+     */
+    @Test
+    public void testGetEntries() {
+        assertNotNull(importer.getEntries());
     }
 
     @Test
@@ -53,12 +63,11 @@ public class RISImporterTest {
      * Test if split the lines remove "ER  -" correctly
      */
     @Test
-    public void testIfSplitCorrect(){
-        String[] entries = importer.gerEntries;
+    public void testIfSplitCorrect() {
+        String[] entries = importer.getEntries();
         for (String entry : entries) {
             assertFalse(entry.equals("ER  - "));
         }
     }
-
 
 }
