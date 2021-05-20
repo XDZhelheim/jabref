@@ -50,7 +50,7 @@ public class FileNameUniquenessTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/6179
      * Test the case that download a new file
      * @throws IOException it will throw this when error occur in reading file
      */
@@ -66,7 +66,7 @@ public class FileNameUniquenessTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/6179
      * Test the case that download a file with similar file name and the same content
      * @throws IOException it will throw this when error occur in reading file
      */
@@ -85,7 +85,7 @@ public class FileNameUniquenessTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/6179
      * Test the method eraseDuplicateMarks to erase parentheses in file name with duplicate format
      * @throws IOException it will throw this when error occur in reading file
      */
@@ -97,7 +97,7 @@ public class FileNameUniquenessTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/6179
      * Test the method eraseDuplicateMarks to erase parentheses in file name with duplicate format
      * @throws IOException it will throw this when error occur in reading file
      */
@@ -109,7 +109,7 @@ public class FileNameUniquenessTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/6179
      * Test the method eraseDuplicateMarks to erase parentheses in file name with duplicate format
      * @throws IOException it will throw this when error occur in reading file
      */
@@ -121,7 +121,7 @@ public class FileNameUniquenessTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/6179
      * Test the method eraseDuplicateMarks to erase parentheses in file name with duplicate format
      * @throws IOException it will throw this when error occur in reading file
      */

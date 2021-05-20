@@ -19,7 +19,7 @@ public class UTF8CheckerTest {
     private final BibEntry entry = new BibEntry();
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/5850
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/5850
      * fieldAcceptsUTF8 to check UTF8Checker's result set
      * when the entry is encoded in UTF-8 (should be empty)
      */
@@ -31,7 +31,7 @@ public class UTF8CheckerTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/5850
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/5850
      * fieldDoesNotAcceptUmlauts to check UTF8Checker's result set
      * when the entry is encoded in Non-Utf-8 charset and the System
      * environment is Non UTF-8.
@@ -51,7 +51,7 @@ public class UTF8CheckerTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/5850
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/5850
      * To check the UTF8Checker.UTF8EncodingChecker
      * in NonUTF8 char array (should return false)
      *
@@ -66,7 +66,7 @@ public class UTF8CheckerTest {
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/5850
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/5850
      * To check the UTF8Checker.UTF8EncodingChecker
      * in UTF-8 char array (should return true)
      */

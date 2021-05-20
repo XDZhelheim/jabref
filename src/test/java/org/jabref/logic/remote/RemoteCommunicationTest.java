@@ -65,7 +65,7 @@ class RemoteCommunicationTest {
         verify(server).handleCommandLineArguments(message);
     }
 
-    // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
+    // CS304 (manually written) Issue Link: https://github.com/JabRef/jabref/issues/6487
     // Test method: Protocol.sendMessage and Protocol.receiveMessage
     // Test whitespaces and Chinese characters
     @Test
@@ -78,7 +78,7 @@ class RemoteCommunicationTest {
         verify(server).handleCommandLineArguments(message);
     }
 
-    // CS304 Issue Link: https://github.com/JabRef/jabref/issues/6487
+    // CS304 (manually written) Issue Link: https://github.com/JabRef/jabref/issues/6487
     @Test
     void commandLineArgumentEncodingAndDecoding2() {
         final String[] message = new String[]{"D:\\TEST\\äöüß.bib"};

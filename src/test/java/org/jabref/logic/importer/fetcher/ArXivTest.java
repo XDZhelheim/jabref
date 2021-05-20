@@ -96,7 +96,7 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/7633
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/7633
      * Test whether it will download the file with curly brackets successfully
      * @throws IOException it will throw this when error occur in reading file
      */
@@ -132,7 +132,7 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
     }
 
     /**
-     * CS304 issue link: https://github.com/JabRef/jabref/issues/7633
+     * CS304 (manually written) issue link: https://github.com/JabRef/jabref/issues/7633
      * Test whether it will download the file with curly brackets and part of  author
      * @throws IOException it will throw this when error occur in reading file
      */
