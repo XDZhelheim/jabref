@@ -44,6 +44,7 @@ Note that this project **does not** adhere to [Semantic Versioning](http://semve
 
 ### Fixed
 
+- We fixed an issue where searching for bibliographies and importing them triggers uncaught java.lang.IndexOutOfBoundsException [#7606](https://github.com/JabRef/jabref/issues/7606)
 - We fixed an issue where import hangs for ris files with "ER - " failed [#7737](https://github.com/JabRef/jabref/issues/7737)
 - We fixed an issue where getting bibliograhpic data from DOI or another identifer did not respect the library mode (BibTeX/biblatex)[#1018](https://github.com/JabRef/jabref/issues/6267)
 - We fixed an issue where importing entries would not respect the library mode (BibTeX/biblatex)[#1018](https://github.com/JabRef/jabref/issues/1018)

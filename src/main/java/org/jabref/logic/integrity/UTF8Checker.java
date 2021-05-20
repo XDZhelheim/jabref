@@ -43,7 +43,7 @@ public class UTF8Checker implements EntryChecker {
      * @param data the byte array used to check the encoding charset
      * @return true if is encoded in UTF-8 & false is not encoded in UTF-8
      */
-    public static boolean UTF8EncodingChecker(byte[] data) {
+    public static boolean utf8EncodingChecker(byte[] data) {
         CharsetDecoder decoder = StandardCharsets.UTF_8.newDecoder();
         try {
             decoder.decode(ByteBuffer.wrap(data));

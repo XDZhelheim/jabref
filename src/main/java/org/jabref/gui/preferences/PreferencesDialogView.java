@@ -43,8 +43,8 @@ public class PreferencesDialogView extends BaseDialog<PreferencesDialogViewModel
     private PreferencesDialogViewModel viewModel;
 
     /**
-    * @param frame Frame of JabRef GUI
-    */
+     * @param frame Frame of JabRef GUI
+     */
     public PreferencesDialogView(JabRefFrame frame) {
         this.frame = frame;
         this.setTitle(Localization.lang("JabRef preferences"));
