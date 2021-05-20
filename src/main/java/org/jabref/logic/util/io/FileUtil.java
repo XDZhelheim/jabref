@@ -70,6 +70,7 @@ public class FileUtil {
     }
 
     /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
      * Returns the name part of a file name (i.e., everything in front of last ".").
      */
     public static String getBaseName(Path fileNameWithExtension) {

@@ -115,6 +115,13 @@ public class ArXiv implements FulltextFetcher, PagedSearchBasedFetcher, IdBasedF
         }
     }
 
+    /**
+     *  CS304 issue link: https://github.com/JabRef/jabref/issues/7633
+     *  Erase curly brackets before search online and comparison
+     * @param originalEntry an entry saving the information of bib file
+     * @return arxivEntry with attach file information if download successfully
+     * @throws FetcherException throw when fail to download the file
+     */
     private List<ArXivEntry> searchForEntries(BibEntry originalEntry) throws FetcherException {
         // We need to clone the entry, because we modify it by a cleanup job.
         final BibEntry entry = (BibEntry) originalEntry.clone();

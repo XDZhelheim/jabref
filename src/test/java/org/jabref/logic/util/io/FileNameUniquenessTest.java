@@ -49,6 +49,11 @@ public class FileNameUniquenessTest {
         assertEquals("manyfiles (2).txt", outputFileName);
     }
 
+    /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * Test the case that download a new file
+     * @throws IOException it will throw this when error occur in reading file
+     */
     @Test
     public void testIsDuplicatedFileWithNoSimilarNames() throws IOException {
         DialogService dialogService = mock(DialogService.class);
@@ -60,6 +65,11 @@ public class FileNameUniquenessTest {
         assertFalse(isDuplicate);
     }
 
+    /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * Test the case that download a file with similar file name and the same content
+     * @throws IOException it will throw this when error occur in reading file
+     */
     @Test
     public void testIsDuplicatedFileWithOneSimilarNames() throws IOException {
         DialogService dialogService = mock(DialogService.class);
@@ -74,6 +84,11 @@ public class FileNameUniquenessTest {
         assertTrue(isDuplicate);
     }
 
+    /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * Test the method eraseDuplicateMarks to erase parentheses in file name with duplicate format
+     * @throws IOException it will throw this when error occur in reading file
+     */
     @Test
     public void testTaseDuplicateMarksReturnsOrignalFileName1() throws IOException {
         String fileName1 = "abc def (1)";
@@ -81,6 +96,11 @@ public class FileNameUniquenessTest {
         assertEquals("abc def", fileName2);
     }
 
+    /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * Test the method eraseDuplicateMarks to erase parentheses in file name with duplicate format
+     * @throws IOException it will throw this when error occur in reading file
+     */
     @Test
     public void testTaseDuplicateMarksReturnsOrignalFileName2() throws IOException {
         String fileName1 = "abc (def) gh (1)";
@@ -88,6 +108,11 @@ public class FileNameUniquenessTest {
         assertEquals("abc (def) gh", fileName2);
     }
 
+    /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * Test the method eraseDuplicateMarks to erase parentheses in file name with duplicate format
+     * @throws IOException it will throw this when error occur in reading file
+     */
     @Test
     public void testTaseDuplicateMarksReturnsSameName1() throws IOException {
         String fileName1 = "abc def (g)";
@@ -95,6 +120,11 @@ public class FileNameUniquenessTest {
         assertEquals("abc def (g)", fileName2);
     }
 
+    /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     * Test the method eraseDuplicateMarks to erase parentheses in file name with duplicate format
+     * @throws IOException it will throw this when error occur in reading file
+     */
     @Test
     public void testTaseDuplicateMarksReturnsSameName2() throws IOException {
         String fileName1 = "abc def";

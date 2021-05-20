@@ -95,6 +95,11 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
         assertEquals(Optional.of(new URL("http://arxiv.org/pdf/cond-mat/0406246v1")), fetcher.findFullText(entry));
     }
 
+    /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/7633
+     * Test whether it will download the file with curly brackets successfully
+     * @throws IOException it will throw this when error occur in reading file
+     */
     @Test
     void findFullTextByTitleWithCurlyBracket() throws IOException {
         entry.setField(StandardField.TITLE, "Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}");
@@ -126,6 +131,11 @@ class ArXivTest implements SearchBasedFetcherCapabilityTest, PagedSearchFetcherT
         assertEquals(Optional.of(new URL("http://arxiv.org/pdf/cond-mat/0406246v1")), fetcher.findFullText(entry));
     }
 
+    /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/7633
+     * Test whether it will download the file with curly brackets and part of  author
+     * @throws IOException it will throw this when error occur in reading file
+     */
     @Test
     void findFullTextByTitleWithCurlyBracketAndPartOfAuthor() throws IOException {
         entry.setField(StandardField.TITLE, "Machine versus {Human} {Attention} in {Deep} {Reinforcement} {Learning} {Tasks}");

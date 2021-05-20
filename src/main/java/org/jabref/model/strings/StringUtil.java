@@ -735,6 +735,12 @@ public class StringUtil {
         return StringUtils.substringBetween(str, open, close);
     }
 
+    /**
+     *  CS304 issue link: https://github.com/JabRef/jabref/issues/6179
+     *  Erase the curly brackets in the String
+     * @param title the title with or with out curly bracket
+     * @return the new title with out curly brackets
+     */
     public static String ignoreCurlyBracket(String title) {
         return isNotBlank(title) ? title.replace("{", "").replace("}", "") : title;
     }

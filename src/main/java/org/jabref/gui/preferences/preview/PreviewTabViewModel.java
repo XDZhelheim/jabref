@@ -194,6 +194,7 @@ public class PreviewTabViewModel implements PreferenceTabViewModel {
     }
 
     /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/5464
      * Getter method for warning list.
      * @return list of string with warning information.
      */
@@ -203,6 +204,7 @@ public class PreviewTabViewModel implements PreferenceTabViewModel {
     }
 
     /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/5464
      * Store the changes of preference-preview settings.
      */
     @Override

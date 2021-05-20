@@ -51,6 +51,7 @@ public class FileNameUniqueness {
     }
 
     /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
      * This function decide whether the newly downloaded file has the same content with other files
      * It returns ture when the content is duplicate, while returns false if it is not
      *
@@ -106,6 +107,7 @@ public class FileNameUniqueness {
     }
 
     /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/6179
      * This is the opposite function of getNonOverWritingFileName
      * It will recover the file name to origin if it has duplicate mark such as " (1)"
      * change the String whose format is "xxxxxx (number)" into "xxxxxx", while return the same String when it does not match the format
