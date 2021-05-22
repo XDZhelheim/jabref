@@ -227,6 +227,7 @@ public class GroupDialogViewModel {
                     if (StringUtil.isBlank(input)) {
                         return false;
                     } else {
+                        // CS304 issue link: https://github.com/JabRef/jabref/issues/7719
                         Path inputPath = getAbsoluteTexGroupPath(input);
                         if (!inputPath.isAbsolute() || !Files.isRegularFile(inputPath)) {
                             return false;
@@ -264,6 +265,7 @@ public class GroupDialogViewModel {
     }
 
     /**
+     * CS304 issue link: https://github.com/JabRef/jabref/issues/7719
      * Gets the absolute path relative to the LatexFileDirectory, if given a relative path
      * @param input the user input path
      * @return an absolute path if LatexFileDirectory exists; otherwise, returns input
